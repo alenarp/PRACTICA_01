@@ -1,5 +1,8 @@
 @ -0,0 +1,121 @@
 <style>
+:root {
+
+}
 * {
   margin: 0;
   padding: 0;
@@ -25,11 +28,11 @@
 }
 
 
-.navbar__logo {
-  font-weight: 700;
-  font-size: 1.2rem;
-  text-decoration: none;
-  color: #111;
+.logo img, 
+.logo-img {
+  height: 45px; /* cambia según tamaño que quieras */
+  width: auto;
+  display: block;
 }
 
 
@@ -119,4 +122,4 @@
     display: block;
   }
 }
-</style>
+<style>
