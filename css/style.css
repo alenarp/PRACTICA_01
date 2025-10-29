@@ -103,27 +103,32 @@
   display: flex !important;
 }
 
+/* MEDIA QUERYS */
 
 @media (max-width: 800px) {
 .navbar__container {
-    width: 92% !important;
-    max-width: 420px !important;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 1rem; /* un pelín de aire para que no toquen el borde literal */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
    
   }
-/* Botón burger visible en móvil */
+
 .burger{
   display:inline-block;
   cursor:pointer;
   z-index:9999;
 }
 
-/* Drawer derecho (oculto) */
+
 .navbar__menu{
   margin:0;
   position:fixed;
   top:0;
-  right:-50vw;            /* se esconde media pantalla a la derecha */
-  width:50vw;             /* ocupa mitad de pantalla */
+  right:-50vw;            
+  width:50vw;          
   height:100vh;
   background:#f1d2da;
   box-shadow:-4px 0 18px rgba(0,0,0,.2);
@@ -132,10 +137,10 @@
 
   display:flex;
   flex-direction:column;
-  align-items:flex-start;  /* texto a la izquierda */
+  align-items:flex-start;  
   gap:1.25rem;
 
-  padding:3.25rem 1.5rem 1.5rem; /* ↑ deja espacio para la X arriba */
+  padding:3.25rem 1.5rem 1.5rem; 
   transition:right .33s ease-in-out;
 }
 
@@ -149,7 +154,8 @@
 .navbar__button{
   display:block;
   width:100%;
-  text-align:left;          /* alineación izquierda */
+  text-align:left;          
+  
   font-size:1.15rem;
 }
 
