@@ -292,7 +292,6 @@ header.scrolled {
 }
 
 
-
 .aura-divider__group li:not(:last-child)::after{
   content: "•";
   font-size: clamp(14px, 2.5vw, 32px);
@@ -538,8 +537,3 @@ h2{
   .col-md-3{ flex: 0 0 23%; max-width: 23%; }
   .col-md-6{ flex: 0 0 48%; max-width: 48%; }
 }
-
-  /* Accesibilidad: si el usuario pide menos animación, se pausa */
-  @media (prefers-reduced-motion: reduce){
-    .aura-divider__track{ animation: none; }
-  }
