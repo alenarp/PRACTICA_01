@@ -3,117 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AURA . Festival de cine</title>
+    <title>AURA · Festival de cine</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
-     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
 </head>
 <body>
-    
-</body>
-</html>
-<body>
-<html>
-<header>
-  <nav class="navbar">
-    <div class="navbar__container">
+    <header>
+        <nav class="navbar">
+            <div class="navbar-container">
+                
+                <a href="index.html" class="logo">
+                    <img src="assets/images/Aura-Logo-white-1.png" alt="Logo AURA" class="logo-img">
+                </a>
+                <button class="burger" aria-label="Abrir menú" aria-controls="menu_pr" aria-expanded="false">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
 
-     <a href="index.html" class="logo"> <img src="assets/images/Aura-Logo-white-1.png" alt="Logo AURA" class="logo-img">
-</a>
+                <ul id="menu_pr" class="menu_pr">
+                    <li class="menu_item"><a href="index.html" class="menu_link">HOME</a></li>
+                    <li class="menu_item"><a href="aura.html" class="menu_link">AURA</a></li>
+                    <li class="menu_item"><a href="premiadas.html" class="menu_link">PREMIADAS</a></li>
+                    <li class="menu_item"><a href="noticias.html" class="menu_link">BLOG</a></li>
+                    <li class="menu_item nav-cta"><a href="contact.html" class="menu_button">ENTRADAS</a></li>
+                </ul>
 
-<div class="burger">
-     <i class="fas fa-bars"></i>
- </div>
-
-   
-      <ul class="navbar__menu">
-        <li class="navbar__item"><a href="index.html" class="navbar__link">HOME</a></li>
-        <li class="navbar__item"><a href="aura.html" class="navbar__link">AURA</a></li>      
-        <li class="navbar__item"><a href="premiadas.html" class="navbar__link">PREMIADAS</a></li>
-        <li class="navbar__item"><a href="noticias.html" class="navbar__link">BLOG</a></li>
-        <li class="navbar__item nav-cta"><a href="contact.html" class="navbar__button">ENTRADAS</a></li>
-        </li>
-
-      </ul>
-    </div>
-  </nav>
-</header>
-
-  <main id="main-content">
-
-    <section class="hero" aria-label="Festival de cine">
-      <div class="hero__bg" role="img" aria-label="Foto festival"></div>
-      <div class="hero__overlay" aria-hidden="true"></div>
-
-      <div class="hero__content">
-        <p class="hero__frase">Donde la luz vuelve a contar historias</p>
-
-        <h1 class="hero__title">AURA · Festival de Cine </h1>
-
-        <div class="hero__meta">
-          <p1 class="hero__meta-item">
-            <span class="hero__meta-label">Fecha:</span>
-            <time datetime="fecha">27 - 29 Enero</time>
-          </p>
-          <address class="hero__meta-item" aria-label="Ubicación">
-            <span class="hero__meta-label">Lugar:</span>
-            <span class="hero__meta-text">La Alpujarra,<br> Granada</span>
-          </address>
-        </div>
-
-        <p class="hero__cta">
-          <a class="btn btn--primary" href="#tickets">Consigue tu entrada</a>
-        </p>
-      </div>
-    </section>
-
-
-
-    <!-- Bloque 1: ¿Qué es AURA?  (imagen izq + texto dcha) -->
-        <section class="about-aura"> 
-        
-        <section class="block block--about">
-      <figure class="block__media">
-
-        <img src="./assets/images/carrete.jpg" alt="Ambiente del festival AURA">
-      </figure>
-
-      <div class="block__content">
-        <h2 class="que_es_aura">¿QUÉ ES AURA?</h2>
-        <p><strong>AURA</strong> es un festival de cine contemporáneo que celebra las historias que permanecen.</p>
-        <p>Nace con la intención de dar espacio a una nueva generación de miradas auténticas, arriesgadas y humanas en el cine. Aquí la luz, el silencio y la emoción se mezclan para crear un encuentro donde el cine no solo se ve, sino que se siente.</p>
-      </div>
-    </section>
-
-
-    <section class="block block--wide">
-      <p>
-        Nuestro festival defiende el cine como espacio de encuentro y reflexión, lejos del consumo rápido y el ruido mediático. 
-        Creemos en las miradas personales y en las voces que se atreven a narrar desde la fragilidad, la memoria, el cuerpo, la identidad y la transformación emocional. 
-        Nuestros valores se basan en la autenticidad, la calma y el cuidado.
-      </p>
-      <p>
-        <strong>AURA</strong> existe para honrar lo imperfecto, lo íntimo, lo que permanece cuando todo se apaga.
-      </p>
-    </section>
+            </div>
+        </nav>
+    </header>
 
   
-    <section class="block block--xp">
-      <div class="block__content">
-        <h2 class="que_es_aura">EXPERIENCIA</h2>
-        <p>
-          AURA es una experiencia única de 3 días en los que las películas se proyectan al aire libre, bajo las estrellas y rodeada de personas que ven el cine como tú. 
-          Entre proyecciones hay charlas con cineastas, pequeños talleres creativos, música en directo que se mezcla con el ambiente y momentos sencillos pero especiales.
-        </p>
+
+    
+        <section id="hero" class="hero" aria-label="Festival de cine">
+            <div class="hero-bg" role="img" aria-label="Foto festival"></div>
+            <div class="hero-overlay" aria-hidden="true"></div>
+
+            <div class="hero-content">
+                <p class="hero-frase">Donde la luz vuelve a contar historias</p>
+                <h1 class="hero-title">AURA <span>·</span> Festival de Cine</h1>
+
+                <div class="hero-meta">
+                    <p class="hero-meta-item">
+                        <span class="hero-meta-label">Fecha:</span>
+                      
+                        <time datetime="2026-01-27">27 - 29 Enero</time>
+                    </p>
+                    <address class="hero-meta-item" aria-label="Ubicación">
+                        <span class="hero-meta-label">Lugar:</span>
+                        <span class="hero-meta-text">La Alpujarra,<br> Granada</span>
+                    </address>
+                </div>
+
+                <p class="hero-cta">
+                    <a class="btn btn-primary" href="#tickets">Consigue tu entrada</a>
+                </p>
+            </div>
+        </section>
+
+<section class="about-aura">
+  <div class="container relative z-1">
+    <div class="row">
+      <div class="col-md-3">
+        <img src="./assets/images/young-cheerful-football-fans-clinking-with-beer-in-2025-03-15-06-05-39-utc.jpg" class="w-100 rounded-1" alt="">
       </div>
 
-      <figure class="block__media">
-        <img src="./assets/images/conciertito.jpg" alt="Proyección al aire libre en AURA">
-      </figure>
-    </section>
-    </section>
+      <div class="col-md-6 text-center">
+        <div class="subtitle id-color">ABOUT AURA</div>
+        <h2 class="text-uppercase">CONOCE MUCHO MÁS SOBRE 
+          <span class="id-color-2">AURA</span></h2>
+        <p>AURA es un festival de cine contemporáneo que celebra las historias que permanecen.
+ Nace con la intención de dar espacio a una nueva generación de miradas auténticas, arriesgadas, y  humanas en el cine. Aquí la luz, el silencio y la emoción se mezclan para crear un encuentro donde el cine no solo se ve , sino que se siente.</p>
+        <p> AURA existe para honrar lo imperfecto, lo íntimo, lo que permanece cuando todo se apaga. </p>
+        <a class="btn-main" href="entradas.html">ENTRADAS</a>
+      </div>
 
-</main>
+      <div class="col-md-3">
+        <img src="./assets/images/several-young-cheerful-friends-in-warm-casualwear-2025-03-15-05-39-00-utc.jpg" class="w-100 rounded-1" alt="">
+      </div>
+    </div>
+  </div>
+</section>
 
-<script src="JS/script.js"></script>
+
+
+         <section class="quote">
+  <div class="quote__bg" style="background-image:url('./assets/images/carrete.jpg')"></div>
+    <div class="container text-center z-2">
+     <div class="item">
+        <i class="icofont-quote-left fs-40 mb-4 wow fadeInUp id-color-2"></i>
+        <h3 class="mb-4 wow fadeInUp fs-32">
+          Hay películas que no terminan cuando se apagan las luces. Se quedan en la piel, en el pecho, en esa parte de nosotros que no sabe mentir. Aquí celebramos esas historias: las que no pasan, las que nos cambian sin hacer ruido.
+        </h3>
+        <h4>FESTIVAL DE CINE AURA</h4>
+
+    </div>
+  </div>
+</section>
+    </main>
+
+
+    <footer>
+      
+    </footer>
+
+
+    <script src="js/script.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 let burger = document.querySelector(".burger > i");
-let menu_opt = document.querySelector(".navbar__menu");
+let menu_opt = document.querySelector("#menu_pr"); // antes .navbar__menu
 
 // Variable para saber si el menu esta abierto o cerrado
 let isOpen = false;
@@ -14,13 +14,12 @@ burger.addEventListener("click", function(){
 });
 
 //Navbar al scrollear
-  const header = document.querySelector("header");
+const header = document.querySelector("header");
 
-  window.addEventListener("scroll", function() {
-    if (window.scrollY > 50) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
-  });
-
+window.addEventListener("scroll", function() {
+  if (window.scrollY > 50) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
+});
