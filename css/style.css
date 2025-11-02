@@ -8,6 +8,7 @@
   --text-color-two: #7A6F6F;      /* gris para botones claros */
   --color-accent-strong: #ffedde;
   --color-btn-bg: rgba(255,255,255,0.92);
+  
 
   /* Tipografía */
   --font-sans: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -24,6 +25,7 @@
 
   --maxw: 70rem;
   --header-h: 80px;
+  --aura-gap: clamp(24px, 6vw, 80px);
 
   --shadow: 0 10px 30px rgba(30, 46, 36, .08);
   --radius: 14px;
@@ -31,6 +33,8 @@
   /* Efectos */
   --shadow-soft: 0 10px 30px rgba(255, 159, 100, 0.18);
   --transition-time: .3s;
+  --aura-speed: 35s;        
+   
 
   /* TAMAÑOS DE FUENTE */
   --fs-12: .75rem;
@@ -251,6 +255,57 @@ header.scrolled {
   transform: translateY(0) scale(.98); 
 }
 
+  .aura-divider{
+    background: var(--bg-color-menu);
+    color: var(--text-color);
+    overflow: hidden;
+    padding-block: clamp(8px, 2.6vw, 18px);
+  }
+
+  .aura-divider__track{
+    display: flex;
+    width: max-content;           
+    animation: aura-slide var(--aura-speed) linear infinite;
+    will-change: transform;
+  }
+
+
+  .aura-divider__group{
+    list-style: none;
+    margin: 0;
+    padding: 0 var(--aura-gap);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--aura-gap);
+    flex: 0 0 auto;
+  }
+
+  .aura-divider__group li{
+  display: flex;
+  align-items: center;
+}
+
+.aura-divider .word-img{
+  width: clamp(30px, 12vw, 110px);
+  height: auto;
+  display: block;
+}
+
+
+
+.aura-divider__group li:not(:last-child)::after{
+  content: "•";
+  font-size: clamp(14px, 2.5vw, 32px);
+  opacity: .7;
+  margin-left: var(--aura-gap);
+}
+
+ 
+  @keyframes aura-slide{
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
 /*ABOUT ME*/
 
 .container{
@@ -296,7 +351,6 @@ header.scrolled {
   object-fit: cover;
   border-radius: var(--radius);
 }
-
 
 
 .subtitle{
@@ -368,7 +422,6 @@ h2{
 }
 
 
-
 .quote .container{ position: relative; }
 
 .quote .item{
@@ -431,7 +484,7 @@ h2{
 
   .menu_pr.menu-show{
     right:0;
-    background: rgba(242, 218, 179, 0.458);
+    background: rgba(242, 218, 179, 0.655);
     backdrop-filter: blur(14px) saturate(120%);
     border-bottom-left-radius:20px;
     border-radius: 15px;
@@ -482,3 +535,8 @@ h2{
   .col-md-3{ flex: 0 0 23%; max-width: 23%; }
   .col-md-6{ flex: 0 0 48%; max-width: 48%; }
 }
+
+  /* Accesibilidad: si el usuario pide menos animación, se pausa */
+  @media (prefers-reduced-motion: reduce){
+    .aura-divider__track{ animation: none; }
+  }
