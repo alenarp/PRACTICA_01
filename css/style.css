@@ -1,4 +1,3 @@
-/* ================== TOKENS / BASE ================== */
 :root {
   /* Colores */
   --color-background: #FFF8F3;
@@ -25,7 +24,7 @@
 
   --maxw: 70rem;
   --header-h: 80px;
-  --aura-gap: clamp(24px, 6vw, 80px);
+  --aura-gap: clamp(24px, 6vw, 60px);
 
   --shadow: 0 10px 30px rgba(30, 46, 36, .08);
   --radius: 14px;
@@ -65,7 +64,7 @@ body{
 }
 
 
-header{
+.site-header{
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
@@ -73,7 +72,7 @@ header{
   transition: 0.3s ease, backdrop-filter 0.3s ease;
 }
 
-header.scrolled {
+.site-header.scrolled {
   background:#f1abbddd;
   box-shadow: 0 4px 20px rgba(0,0,0,0.08);
   padding: 1rem 0; 
@@ -291,12 +290,8 @@ header.scrolled {
   display: block;
 }
 
-
 .aura-divider__group li:not(:last-child)::after{
-  content: "•";
-  font-size: clamp(14px, 2.5vw, 32px);
-  opacity: .7;
-  margin-left: var(--aura-gap);
+  content: "";
 }
 
  
@@ -338,11 +333,6 @@ header.scrolled {
 .id-color-2{ color: var(--color-title);
   font-family: var(--font-serif);
 font-size: clamp(40px, 8vw, 60px); }
-
-
-.about-aura {
-  padding-block: clamp(50px, 8vw, 110px);
-}
 
 
 .about-aura img{
@@ -451,6 +441,135 @@ h2{
 }
 
 
+.peliculas .section-title {
+  font-family: var(--font-serif);
+  font-weight: 800;
+  font-size: clamp(26px, 5vw, 48px);
+  color: var(--color-title); 
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+}
+
+
+.peliculas .lead {
+  color: var(--text-color-two); 
+  font-size: clamp(16px, 2vw, 20px);
+  margin-bottom: 10px;
+}
+
+.peliculas .muted {
+  color: var(--text-color-two);
+  font-size: clamp(16px, 2vw, 20px);
+  margin-bottom: 10px;
+}
+
+.program-grid{
+  --card-gap: clamp(18px, 3vw, 36px);
+}
+
+/* si el padding global de .container mete demasiado aire, lo afinamos aquí */
+.program-grid .container{
+  padding-top: clamp(5px, 4vw, 10px);
+  padding-bottom: clamp(24px, 4vw, 48px);
+}
+
+/* GRID */
+.program-grid .program-grid__wrap{
+  display:grid;
+  gap: var(--card-gap);
+  grid-template-columns: 1fr; /* móvil */
+}
+
+
+.program-grid .film{
+  display:grid;
+  gap:14px; /* separación entre meta y póster */
+}
+
+
+.program-grid .film__meta{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:16px;
+}
+.program-grid .film__meta--bottom{ align-items:flex-start; }
+
+
+.program-grid .film__title{
+  margin:0;
+  font-weight:800;
+  letter-spacing:.4px;
+  text-transform:uppercase;
+  color:#141414;
+  font-size:clamp(16px, 1.4vw, 20px);
+  line-height:1.2;
+}
+.program-grid .film__dir{
+  color:#827C7F;
+  font-size:clamp(12px, 1vw, 14px);
+  letter-spacing:.6px;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+
+
+.program-grid .film__poster{
+  margin:0;
+  background:#dbdbdb;
+  border-radius:6px;
+  overflow:hidden;
+  aspect-ratio:3/4;
+  position:relative;
+}
+.program-grid .film__poster img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition: filter .35s ease, transform .35s ease;
+  will-change: filter, transform;
+}
+
+.program-grid .film__overlay{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  background:rgba(20,20,20,.28);
+  color:#fff;
+  border:0;
+  opacity:0;
+  pointer-events:none;
+  transition: opacity .25s ease;
+}
+.program-grid .film:hover .film__overlay,
+.program-grid .film:focus-within .film__overlay{
+  opacity:1;
+  pointer-events:auto;
+}
+.program-grid .film:hover .film__poster img,
+.program-grid .film:focus-within .film__poster img{
+  filter: blur(3px) brightness(.9);
+  transform: scale(1.03);
+}
+.program-grid .film__overlay span{
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:.6px;
+  padding:.55rem 1rem;
+  border:2px solid #fff;
+  border-radius:12px;
+  backdrop-filter: blur(.5px);
+}
+.program-grid .film__overlay span:hover{
+  font-weight:800;
+  border-color:#fdbff3;
+  color:#fdbff3;
+}
+
+
 /*  RESPONSIVE  */
 
 @media (max-width: 800px){
@@ -536,4 +655,20 @@ h2{
 @media (min-width: 1200px){
   .col-md-3{ flex: 0 0 23%; max-width: 23%; }
   .col-md-6{ flex: 0 0 48%; max-width: 48%; }
+  .program-grid .film.meta-bottom,
+  .program-grid .film.meta-top{ gap:18px; }
+
+  .program-grid .program-grid__wrap > .film:nth-child(2) .film__meta--bottom,
+  .program-grid .program-grid__wrap > .film:nth-child(4) .film__meta--bottom{
+    margin-top:8px;
+  }
+}
+
+@media (min-width: 900px){
+  .program-grid .program-grid__wrap{ grid-template-columns: repeat(2, 1fr); }
+}
+
+/*Si lo uno al anterior min-width: 1200px no funciona*/
+@media (min-width: 1200px){
+  .program-grid .program-grid__wrap{ grid-template-columns: repeat(4, 1fr); }
 }
