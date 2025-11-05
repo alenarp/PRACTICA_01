@@ -23,3 +23,29 @@ window.addEventListener("scroll", function() {
     header.classList.remove("scrolled");
   }
 });
+
+// Abrir el modal correspondiente
+document.querySelectorAll(".openModal").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const selector = btn.dataset.target;     // Ej: #modal-7
+    const modal = document.querySelector(selector);
+    if (modal) {
+      modal.classList.add("show-modal");
+    }
+  });
+});
+
+// Cerrar con X o botón aceptar
+document.querySelectorAll(".modalWindow .close, .modalWindow .btn-accept").forEach(el => {
+  el.addEventListener("click", () => {
+    const modal = el.closest(".modalWindow");
+    modal.classList.remove("show-modal");
+  });
+});
+
+// Cerrar clic fuera del contenido
+window.addEventListener("click", (event) => {
+  if (event.target.classList.contains("modalWindow")) {
+    event.target.classList.remove("show-modal");
+  }
+});

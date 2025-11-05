@@ -7,6 +7,7 @@
   --text-color-two: #7A6F6F;      /* gris para botones claros */
   --color-accent-strong: #ffedde;
   --color-btn-bg: rgba(255,255,255,0.92);
+  --header-h: 88px;
   
 
   /* Tipografía */
@@ -46,6 +47,9 @@
   --fs-56: 3.5rem;
 }
 
+.has-anchor{
+  scroll-margin-top: var(--header-h);
+}
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 img{ max-width:100%; display:block; height:auto; }
@@ -569,6 +573,112 @@ h2{
   color:#fdbff3;
 }
 
+/* OVERLAY */
+.modalWindow {
+    display: none;
+    position: fixed;
+    z-index: 1;                /* más alto por si tienes headers sticky */
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: #2d181da7;; /* fondo oscuro */
+    opacity: 0;
+    align-content: center;
+
+    /* Animación de opacidad (y permitir “discrete”) */
+    transition: opacity .25s ease-out;
+    transition-behavior: allow-discrete;
+}
+
+.modalWindow.show-modal {
+    display: block;
+    opacity: 1;
+
+}
+
+/* TARJETA */
+.modalWindow .modal-content {
+    color: var(--text-color-two);
+    background-color: var(--color-background);
+    margin: clamp(56px, 12vh, 120px) auto; /* centrado vertical responsive */
+    margin-top: clamp(56px, 12vh, 120px) auto;
+    padding: clamp(22px, 5vw, 40px);
+    max-width: 720px;                        /* un pelín más ancha para título grande */
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.1rem;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.25), 0 2px 8px rgba(0,0,0,.18);
+    /* pequeña entrada (pop) */
+    animation: modal-pop .18s ease-out;
+}
+
+/* TÍTULO potente como en la captura */
+.modalWindow .modal-content h5 {
+    color: var(--color-title);
+    font-family: var(--font-serif);
+    font-size: clamp(28px, 3.2vw, 40px);
+    line-height: 1.15;
+    font-weight: 800;
+    margin: 0 0 .35rem;
+}
+
+
+/* Párrafos legibles y centrados */
+.modalWindow .modal-content p{
+    max-width: 60ch;
+    margin: 0 auto .75rem;
+    font-size: clamp(15px, 1.7vw, 18px);
+}
+
+/* CIERRE (X) coral arriba a la derecha */
+.modalWindow .modal-content .close {
+    color: var(--color-title);
+    font-size: 2rem;
+    font-weight: bold;
+    align-self: flex-end;
+    margin-right: 10px;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+.modalWindow .modal-content .close:hover {
+    transform: scale(1.05) rotate(3deg);
+}
+
+/* BOTÓN ACCEPT coral redondeado */
+.modalWindow .modal-content .btn-accept{
+    display: inline-block;
+    margin-top: .25rem;
+    padding: .65rem 1.1rem;
+    background: var(--color-title);
+    color: #fff;
+    border: 0;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,.12);
+    transition: filter .12s ease, transform .06s ease;
+}
+.modalWindow .modal-content .btn-accept:hover{ filter: brightness(.95); }
+.modalWindow .modal-content .btn-accept:active{ transform: translateY(1px); }
+
+/* Accesibilidad: foco visible si haces focus() al contenedor */
+.modalWindow .modal-content:focus{ outline: 3px solid color-mix(in oklab, var(--color-title), transparent 55%); outline-offset: 2px; }
+
+/* Animación de entrada */
+@keyframes modal-pop{
+  from{ transform: translateY(6px) scale(.985); opacity:.0; }
+  to{   transform: translateY(0)   scale(1);    opacity:1;  }
+}
+
+
+
 
 /*  RESPONSIVE  */
 
@@ -642,6 +752,7 @@ h2{
     margin-inline: auto;
   }
 
+
   .about-aura p{ max-width: 680px; }
 
     .quote{
@@ -650,6 +761,10 @@ h2{
     padding-bottom: 13px ;
   }
 
+}
+
+@media (max-width: 580px){
+  .modalWindow .modal-content{ margin: 12vh 16px; padding: 22px; }
 }
 
 @media (min-width: 1200px){
