@@ -1026,17 +1026,15 @@ form#bookingForm{
   .program-grid .program-grid__wrap{ grid-template-columns: repeat(2, 1fr); }
 }
 
-/*Si lo uno al anterior min-width: 1200px no funciona*/
+
 @media (min-width: 1200px){
   .program-grid .program-grid__wrap{ grid-template-columns: repeat(4, 1fr); }
 }
 
-/* SOLO móvil: tarjetas a ancho completo */
 @media (max-width: 768px) {
   #tipos_de_entradas .contenedor-tickets {
-    width: 100vw;                   /* ocupa todo el ancho real */
-    margin-left: 50%;
-    transform: translateX(-50%);    /* para centrar en viewport */
+    width: 100vw;                  
+    transform: translateX(-50%);    
     padding-inline: clamp(12px, 4vw, 24px);
   }
 
@@ -1072,9 +1070,9 @@ html {
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 18px;
-  margin-bottom: 40px; /* añade respiro */
+  margin-bottom: 40px; 
 }
-/* ===== Tarjeta info izquierda ===== */
+
 .contact-info{
   background: var(--color-background-two);
   border-radius: 12px;
@@ -1113,14 +1111,13 @@ html {
 }
 .contact-social a{ font-size: 1.1rem; border-bottom: none; }
 
-/* ===== Form derecha ===== */
+
 #bookingForm{
-  align-self: flex-start;                  /* por si acaso */
+  align-self: flex-start;                 
   box-sizing: border-box;
 }
 
-/* ===== MÓVIL: una columna (info arriba, form abajo) ===== */
-@media (max-width: 900px){
+
   .contact-layout{
     flex-direction: column;
     gap: 20px;
@@ -1135,4 +1132,4 @@ html {
   #bookingForm textarea{
     width: 100%;
   }
-}
+
