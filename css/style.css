@@ -1,12 +1,17 @@
 :root {
   /* Colores */
-  --color-background: #FFF8F3;
-  --bg-color-menu: #f1abbd;
-  --color-title: #fd5d93;
-  --text-color: #ffffff;          /* blanco para navbar/hero */
-  --text-color-two: #7A6F6F;      /* gris para botones claros */
-  --color-accent-strong: #ffedde;
-  --color-btn-bg: rgba(255,255,255,0.92);
+  --color-background: #e7d8f863;
+  --bg-color-menu:#f1abbdb3;
+  --color-title: ;
+  --text-color: #a25d79;        /* texto principal */
+  --text-color-two: #646464; /* texto secundario suave */
+  --text-color-three: #ffffff;       /* texto principal */
+  --color-accent-strong: #F2A5A0; /* rosy dawn light */
+  --color-btn-bg: #7c2248; /* peach-light for buttons */
+  --color-btn-bg-hover: #FFE6A8; /* pale sunrise */
+  --color-line: #ffffff3d; /* líneas suaves */
+  --accent-film-blue: #ddf3ff; /* highlight frío cinematográfico */
+
   --header-h: 88px;
   
 
@@ -77,8 +82,8 @@ body{
 }
 
 .site-header.scrolled {
-  background:#f1abbddd;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  background: var(--bg-color-menu);
+
   padding: 1rem 0; 
 }
 
@@ -127,7 +132,7 @@ body{
 
 .menu_link,
 .menu_button{
-  color: var(--text-color);
+  color: var(--text-color-three);
   font-size: .95rem;
   transition: opacity .2s ease, color .2s ease, font-weight .2s ease;
 }
@@ -135,27 +140,40 @@ body{
 .menu_link:hover{ 
   opacity:.6; 
   font-weight:600;
-  color: var(--color-background);
+  color: var(--text-color);
 }
 
 
 .menu_pr .nav-cta a{
   background: transparent;
   padding: .7rem 1.2rem;
-  border: 2px solid var(--text-color);
+  border: 2px solid var(--text-color-three);
   border-radius: 12px;
   font-weight: 300;
 }
 .menu_pr .nav-cta a:hover{
   background: transparent;
   opacity:.6;
-  border-color: var(--color-background);
-  color: var(--color-background);
+  border-color: var(--text-color);
+  color: var(--text-color);
   font-weight: bold;
 }
 
 
-.burger{ display:none; cursor:pointer; background:none; border:0; color:inherit; }
+.burger{ 
+  width: 44px;            
+  height: 44px;
+  display:none; 
+  cursor:pointer; 
+  background:none; 
+  border:0; 
+  color:var(--text-color-three); }
+
+  .burger i,
+.navbar .burger i {
+  font-size: 20px;        
+  line-height: 1;
+}
 
 
 .hero{
@@ -202,7 +220,7 @@ body{
   font-size: clamp(var(--fs-14), 1.6vw, var(--fs-18));
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: rgba(255,255,255,.8);
+  color:var(--color-btn-bg-hover);
 }
 
 .hero-title{
@@ -210,20 +228,28 @@ body{
   font-weight: 400;
   line-height: 1.05;
   font-size: clamp(var(--fs-44), 6vw, var(--fs-56));
-  color: var(--text-color);
+  color: var(--text-color-three);
 }
 
 .hero-meta {
   display:grid;
   gap: var(--space-3);
   font-size: var(--fs-14);
-  color: var(--color-background);
+  color: var(--color-btn-bg-hover);
+  font-style: var(--font-sans), italic;
+  
 }
 .hero-meta-item{ 
   display:block;
+  
 }
-.hero-meta-label{ opacity:.85; margin-right:.35ch }
-.hero-meta-text{ font-style: normal }
+.hero-meta-label{ 
+  opacity:.85; 
+  margin-right:.35ch }
+.hero-meta-text{ 
+  font-style: var(--font-sans), 
+  italic; }
+
 
 .hero-cta .btn{ 
   display:inline-block;
@@ -243,16 +269,16 @@ body{
 }
 
 .btn-primary{
-  background-color:rgba(242, 218, 179, 0.252);
-  color: var(--bg-color-menu);
-  border-color: var(--bg-color-menu);
+  background-color: var(--color-background);
+  color: var(--color-btn-bg-hover);
+  border-color:var(--color-btn-bg-hover);
   box-shadow: var(--shadow-soft);
 }
 .btn-primary:hover{ 
   transform: translateY(-1px);
   font-weight: bold;
-  color: var(--bg-color-menu); 
-  border-color: var(--bg-color-menu);
+  color: #f1abbd; 
+  border-color: #f1abbd;
 }
 .btn-primary:active{ 
   transform: translateY(0) scale(.98); 
@@ -352,7 +378,7 @@ font-size: clamp(40px, 8vw, 60px); }
   display: inline-block;
   padding: 8px 12px;
   border-radius: 999px;
-  background: #fd5d9251; 
+  background: var(--bg-color-menu); 
   color: var(--text-color);
   font-weight: 500;
   letter-spacing: 4px;
@@ -384,8 +410,9 @@ h2{
   display: inline-block;
   padding: 14px 24px;
   border-radius: 12px;
-  background: #fd5d92a1;
-  color: #fff;
+  background: var(--text-color);
+  color: var(--text-color-three);
+  font-style: var(--font-serif);
   font-weight: 500;
   text-decoration: none;
   letter-spacing: 3px;
@@ -395,8 +422,8 @@ h2{
 
 .btn-main:hover{
   transform: translateY(-1px);
-  box-shadow: 0 12px 26px rgba(111, 143, 117, .35);
-  background: #fd5d92; 
+  box-shadow: var(--shadow-soft);
+  background: var(--color-btn-bg); 
 }
 
 
@@ -458,13 +485,13 @@ h2{
 
 .peliculas .lead {
   color: var(--text-color-two); 
-  font-size: clamp(16px, 2vw, 20px);
+  font-size: clamp(14px, 1.5vw, 16px);
   margin-bottom: 10px;
 }
 
 .peliculas .muted {
   color: var(--text-color-two);
-  font-size: clamp(16px, 2vw, 20px);
+  font-size: clamp(14px, 1.5vw, 16px);
   margin-bottom: 10px;
 }
 
@@ -506,13 +533,13 @@ h2{
   font-weight:800;
   letter-spacing:.4px;
   text-transform:uppercase;
-  color:#141414;
+  color:var(--color-btn-bg);
   font-size:clamp(16px, 1.4vw, 20px);
   line-height:1.2;
 }
 .program-grid .film__dir{
-  color:#827C7F;
-  font-size:clamp(12px, 1vw, 14px);
+  color:var(--text-color-two);
+  font-size: clamp(14px, 1.5vw, 16px);
   letter-spacing:.6px;
   text-transform:uppercase;
   white-space:nowrap;
@@ -521,7 +548,6 @@ h2{
 
 .program-grid .film__poster{
   margin:0;
-  background:#dbdbdb;
   border-radius:6px;
   overflow:hidden;
   aspect-ratio:3/4;
@@ -542,7 +568,7 @@ h2{
   display:grid;
   place-items:center;
   background:rgba(20,20,20,.28);
-  color:#fff;
+  color:var(--bg-color-menu);
   border:0;
   opacity:0;
   pointer-events:none;
@@ -563,14 +589,14 @@ h2{
   text-transform:uppercase;
   letter-spacing:.6px;
   padding:.55rem 1rem;
-  border:2px solid #fff;
+  border:2px solid var(--bg-color-menu);
   border-radius:12px;
   backdrop-filter: blur(.5px);
 }
 .program-grid .film__overlay span:hover{
   font-weight:800;
-  border-color:#fdbff3;
-  color:#fdbff3;
+  border-color:var(--color-btn-bg-hover);
+  color:var(--color-btn-bg-hover);
 }
 
 /* OVERLAY */
@@ -677,8 +703,73 @@ h2{
   to{   transform: translateY(0)   scale(1);    opacity:1;  }
 }
 
+/*Entradas*/ 
 
+#tipos_de_entradas {
+padding: clamp(40px, 6vw, 80px) 24px;
+}
 
+#tipos_de_entradas h2 {
+  font-family: var(--font-serif);
+  font-weight: 800;
+  font-size: clamp(26px, 5vw, 48px);
+  color: var(--color-title); 
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+}
+
+.contenedor-tickets {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 4rem;
+    flex-wrap: wrap;
+  
+}
+
+.tarjeta-ticket {
+    background: var(--bg-color-menu);
+    border-radius: var(--radius);
+    padding: 2rem;
+    width: 350px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.tarjeta-ticket:hover {
+    transform: scale(1.05);
+    background: var(--color-title);
+}
+
+.tarjeta-ticket h3 {
+  font-family: var(--font-serif);
+    color: var(--color-accent-strong);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.tarjeta-ticket .price {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 1rem 0;
+    color: var(--color-accent-strong);
+}
+
+.btn-comprar {
+    background: var(--color-title);
+    color: var(--color-background);
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-comprar:hover {
+    background: var(--bg-color-menu);
+    transform: scale(1.05);
+}
 
 /*  RESPONSIVE  */
 
@@ -719,18 +810,24 @@ h2{
     backdrop-filter: blur(14px) saturate(120%);
     border-bottom-left-radius:20px;
     border-radius: 15px;
+    color: var(--text-color-three);
+  }
+  .menu_pr.menu-show :hover{
+    color: var(--text-color);
   }
 
-  .menu_pr.menu-show .menu_link,
-  .menu_pr.menu-show .menu_button{ color: var(--text-color-two); }
+    .menu_pr.menu-show .menu_link,
+  .menu_pr.menu-show .menu_button:hover{ color: var(--text-two); }
 
   .menu_pr.menu-show .nav-cta a{
-    border:2px solid var(--text-color-two);
-    color: var(--text-color-two);
+    border:2px solid var(--text-color-three);
+    color: var(--text-color-three);
     background:transparent;
   }
   .menu_pr.menu-show .nav-cta a:hover{
     background:transparent; 
+    color: var(--text-color);
+    border-color: var(--text-color);
   }
 
   .menu_link, .menu_button{
@@ -787,3 +884,4 @@ h2{
 @media (min-width: 1200px){
   .program-grid .program-grid__wrap{ grid-template-columns: repeat(4, 1fr); }
 }
+
