@@ -22,8 +22,8 @@
 
                 <ul id="menu_pr" class="menu_pr">
                     <li class="menu_item"><a href="#about-aura" class="menu_link">AURA</a></li>
-                    <li class="menu_item"><a href="#peliculas" class="menu_link">PREMIADAS</a></li>
-                    <li class="menu_item"><a href="programa.html" class="menu_link">PROGRAMA</a></li>
+                    <li class="menu_item"><a href="#peliculas" class="menu_link">SELECCIONADAS</a></li>
+                    <li class="menu_item"><a href="#.html" class="menu_link">CONTACTO</a></li>
                     <li class="menu_item nav-cta"><a href="#tipos_de_entradas" class="menu_button">ENTRADAS</a></li>
                 </ul>
 
@@ -121,7 +121,7 @@
  <section id="peliculas" class="peliculas has-anchor">
         <div class="container sobre-grid">
           <div class="peliculas-text">
-            <h2 class="section-title">PELÍCULAS<br>PREMIADAS</h2>
+            <h2 class="section-title">PELÍCULAS<br>SELECCIONADAS</h2>
             <p class="lead">AURA es un festival de cine contemporáneo que celebra las historias que permanecen.</p>
             <p class="muted">Nace con la intención de dar espacio a una nueva generación de miradas auténticas, arriesgadas y humanas en el cine. Aquí
 la luz, el silencio y la emoción se mezclan para crear un encuentro donde el cine no solo se ve , sino que se siente</p>
@@ -396,14 +396,104 @@ la luz, el silencio y la emoción se mezclan para crear un encuentro donde el ci
   </div>
 </section>
 
+<section id="contacto" class="has-anchor">
+  <div class="container">
+    <h2 class="section-title">CONTACTA CON NOSOTROS</h2>
 
-    </main>
+    <div class="contact-layout">
+      <aside class="contact-info">
+        <h3 class="contact-info__title">¿Necesitas algo rápido?</h3>
+        <ul class="contact-list">
+          <li>
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:+34900123456">+34 900 123 456</a>
+          </li>
+          <li>
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:hola@aurafestival.es">hola@aurafestival.es</a>
+          </li>
+          <li>
+            <i class="fa-regular fa-clock"></i>
+            <span>L–V · 10:00–20:00</span>
+          </li>
+          <li class="contact-social">
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </li>
+        </ul>
+        <p class="contact-note">También puedes escribirnos y te contestamos lo antes posible.</p>
+      </aside>
+
+      <!-- Columna derecha: form -->
+      <form id="bookingForm" action="" method="post" novalidate>
+        <div class="elem-group">
+          <label for="name">TU NOMBRE</label>
+          <input
+            type="text"
+            id="name"
+            name="visitor_name"
+            placeholder="Carlos Ruiz"
+            pattern="^[A-Za-zÀ-ÿ\u00f1\u00d1'\-\s]{3,60}$"
+            required />
+        </div>
+
+        <div class="elem-group">
+          <label for="email">TU E-MAIL</label>
+          <input
+            type="email"
+            id="email"
+            name="visitor_email"
+            placeholder="carlos.ruiz@email.com"
+            required />
+          <p id="email_error" aria-live="polite">ERROR: Please enter a valid email address.</p>
+        </div>
+
+        <div class="elem-group">
+          <label for="phone">TU TELÉFONO</label>
+          <input
+            type="tel"
+            id="phone"
+            name="visitor_phone"
+            placeholder="+34 000 000 000"
+            inputmode="tel"
+            pattern="^[+\d][\d\s\-()]{6,}$"
+            required />
+        </div>
+
+        <div class="elem-group">
+          <label for="ticket">TIPO DE ENTRADA</label>
+          <select id="ticket" name="ticket_type" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="general">General</option>
+            <option value="vip">VIP</option>
+            <option value="1_dia">1 día</option>
+          </select>
+        </div>
+
+        <div class="elem-group">
+          <label for="message">ESCRIBE AQUÍ TU MENSAJE</label>
+          <textarea
+            id="message"
+            name="visitor_message"
+            placeholder="Cualquier duda o solicitud, deja aquí un mensaje y te responderemos con la mayor brevedad posible."
+            rows="4"></textarea>
+        </div>
+
+        <button id="submit" type="submit" class="disabled" disabled>ENVIAR</button>
+      </form>
+    </div> 
+  </div>   
+</section>
+</main>
+
     <footer class="footer-zone">
         <div class="footer-container">
           <div class="footer-brand">
-            <img src="./assets/images/Aura-Logo-white-1.png" alt="logo aura" class="footer-logo">
-        </div>
-        <div class="footer-social-block">
+            <a href="#">
+              <img src="./assets/images/Aura-Logo-white-1.png" alt="logo aura" class="footer-logo">  </a>
+        </div><div class="footer-social-block">
             <div class="social-icons">
                 <a href="#">
                     <i class="fab fa-instagram"></i>
@@ -415,15 +505,15 @@ la luz, el silencio y la emoción se mezclan para crear un encuentro donde el ci
                     <i class="fab fa-twitter"></i>
                 </a>
                 <a href="#">
-                    <i class="fab fa-youtube"></i>
+                    <i class="fa-brands fa-facebook"></i>
                 </a>
             </div>
         </div>
 
     </div>
-        
+
     <div class="footer-legal">
-        © 2025 AURA — donde la luz vuelve a contar historias ✨
+        © 2025 AURA — Todos los derechos reservados.
     </div>
 </footer>
 

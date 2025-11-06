@@ -12,8 +12,6 @@
   --color-btn-bg-hover: #FFE6A8; /* pale sunrise */
   --color-line: #ffffff3d; /* líneas suaves */
   --accent-film-blue: #ddf3ff; /* highlight frío cinematográfico */
-
-  --header-h: 88px;
   
 
   /* Tipografía */
@@ -32,12 +30,10 @@
   --maxw: 70rem;
   --header-h: 80px;
   --aura-gap: clamp(24px, 6vw, 60px);
-
-  --shadow: 0 10px 30px rgba(30, 46, 36, .08);
   --radius: 14px;
 
   /* Efectos */
-  --shadow-soft: 0 10px 30px rgba(255, 159, 100, 0.18);
+  --shadow-soft: 0 10px 30px #ff9f642e;
   --transition-time: .3s;
   --aura-speed: 35s;        
    
@@ -273,7 +269,7 @@ body{
   background-color: var(--color-background);
   color: var(--color-btn-bg-hover);
   border-color:var(--color-btn-bg-hover);
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow);
 }
 .btn-primary:hover{ 
   transform: translateY(-1px);
@@ -396,7 +392,8 @@ h2{
   font-weight: 800;
   font-size: clamp(18px, 5vw, 40px);;
   line-height: 1.05;
-  color: var(--text-color) }
+  color: var(--text-color);
+}
 
 
 .about-aura p{
@@ -424,7 +421,7 @@ h2{
 
 .btn-main:hover{
   transform: translateY(-1px);
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow);
   background: var(--color-btn-bg); 
 }
 
@@ -640,7 +637,7 @@ h2{
     align-items: center;
     text-align: center;
     gap: 1.1rem;
-    box-shadow: var(--shadow-soft);
+    box-shadow: var(--shadow);
     /* pequeña entrada (pop) */
     animation: modal-pop .18s ease-out;
 }
@@ -724,7 +721,7 @@ h2{
 }
 
 .contenedor-tickets {
-  padding: 2rem;
+  padding-top: 2rem;
   display: flex;
   justify-content: space-between;  /* reparte hasta los bordes */
   align-items: stretch;
@@ -816,47 +813,108 @@ h2{
     gap: 1.5rem;
 }
 
-.footer-left {
+.footer-brand {
     display: flex;
     align-items: center;
     gap: 0.8rem;
 }
 
+/* .footer-logo se queda igual */
 .footer-logo {
     width: 4rem;
     height: auto;
 }
 
-.footer-right {
+/* antes .footer-right */
+.footer-social-block {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 1rem;
 }
 
-.footer-socials {
+/* antes .footer-socials */
+.social-icons {
     display: flex;
     gap: 1rem;
     font-size: 1.2rem;
 }
 
-.footer-socials a {
+/* antes .footer-socials a */
+.social-icons a {
     color: var(--text-color-three);
     transition: all 0.3s ease;
 }
 
-.footer-socials a:hover {
-    color: var(--color-line);
-}
 
-.footer-bottom {
+/* antes .footer-bottom */
+.footer-legal {
     margin-top: 1.5rem;
     text-align: center;
     font-size: 0.8rem;
     opacity: 0.7;
 }
 
+form#bookingForm{
+  max-width:980px; display:grid;
+  grid-template-columns:1fr 1fr;gap:2.4rem 3rem;
+  border:1px solid var(--color-btn-bg);padding:2rem;border-radius:6px;
+}
+#bookingForm .elem-group{display:grid;gap:.5rem}
 
+/* Orden en dos columnas */
+#bookingForm .elem-group:nth-of-type(1){grid-column:1}     /* Name   */
+#bookingForm .elem-group:nth-of-type(2){grid-column:2}     /* Email  */
+#bookingForm .elem-group:nth-of-type(3){grid-column:1}     /* Phone  */
+#bookingForm .elem-group:nth-of-type(4){grid-column:2}     /* Ticket */
+#bookingForm .elem-group:nth-of-type(5){grid-column:1/-1}  /* Message */
+
+#bookingForm label{
+  font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;opacity:.85
+}
+#bookingForm input,#bookingForm select,#bookingForm textarea{
+  width:100%;background:transparent;color:var(--color-btn-bg);font-size:1rem;
+  border:none;border-bottom:1px solid var(--color-btn-bg);
+  padding:.5rem 0;outline:0;transition:border-color .2s ease
+}
+#bookingForm input:focus,#bookingForm select:focus,#bookingForm textarea:focus{border-bottom-color:var(--color-btn-bg);}
+#bookingForm ::placeholder{color: var(--text-color);}
+#bookingForm textarea{min-height:140px;resize:vertical}
+
+/* Estado error email (tu JS añade .error) */
+#email_error{display:none;color:var(--color-accent-strong);font-size:.8rem;margin-top:.35rem}
+#email_error.error{display:block}
+
+/* Botón */
+#submit{
+  grid-column:1/-1;justify-self:center;margin-top:.5rem;
+  padding:1rem 2rem;border:1px solid var(--text-color);background:transparent;color: var(--text-color);
+  letter-spacing:.07em;text-transform:uppercase;cursor:pointer;transition:background .2s,color .2s,opacity .2s:¡;
+  border-radius: 12px;
+}
+#submit.disabled{opacity:.45;cursor:not-allowed}
+#submit:not(.disabled):hover{background:var(--color-btn-bg);color: var(--color-background-two)}
+
+/* Responsive */
+
+@media (max-width: 780px) {
+  form#bookingForm {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
+
+  /* Forzar cada campo a ocupar toda la fila en móvil */
+  #bookingForm .elem-group {
+    grid-column: 1 / -1 !important;
+  }
+
+  /* Botón full-width y centrado */
+  #submit {
+    justify-self: stretch;
+    text-align: center;
+    width: 100%;
+  }
+}
 
 
 /*  RESPONSIVE  */
@@ -983,6 +1041,98 @@ h2{
   }
 
   #tipos_de_entradas .tarjeta-ticket {
+    width: 100%;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== CONTACTO (container + spacing) ===== */
+#contacto .container{
+  width: min(1100px, 100% - clamp(24px,6vw,64px));
+  margin-inline: auto;
+}
+
+
+/* ===== LAYOUT: dos columnas en desktop (flex) ===== */
+.contact-layout{
+  display: flex;
+  align-items: flex-start;                 /* alinear arriba */
+  justify-content: center;
+  gap: clamp(20px, 4vw, 48px);
+}
+
+#contacto .section-title {
+    font-family: var(--font-serif);
+  font-weight: 800;
+  font-size: clamp(35px, 5vw, 48px);
+  color: var(--color-title); 
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+  margin-bottom: 40px; /* añade respiro */
+}
+/* ===== Tarjeta info izquierda ===== */
+.contact-info{
+  background: var(--color-background-two);
+  border-radius: 12px;
+  padding: clamp(16px,2.5vw,24px);
+}
+.contact-info__title{
+  font-size: clamp(18px,2.2vw,22px);
+  color: var(--color-title);
+  letter-spacing: .02em;
+  
+}
+.contact-list{
+  list-style: none;
+  display: grid;
+  gap: .75rem;
+  margin: 0 0 1rem 0;
+  padding: 0;
+}
+.contact-list li{
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  font-size: .98rem;
+}
+.contact-list i{ opacity: .8; }
+.contact-list a{
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(0,0,0,.15);
+}
+.contact-list a:hover{ opacity: .85; }
+.contact-social{
+  display: flex;
+  gap: .8rem;
+  margin-top: .25rem;
+}
+.contact-social a{ font-size: 1.1rem; border-bottom: none; }
+
+/* ===== Form derecha ===== */
+#bookingForm{
+  align-self: flex-start;                  /* por si acaso */
+  box-sizing: border-box;
+}
+
+/* ===== MÓVIL: una columna (info arriba, form abajo) ===== */
+@media (max-width: 900px){
+  .contact-layout{
+    flex-direction: column;
+    gap: 20px;
+  }
+  .contact-info,
+  #bookingForm{
+    width: 100%;
+    margin: 0;
+  }
+  #bookingForm input,
+  #bookingForm select,
+  #bookingForm textarea{
     width: 100%;
   }
 }

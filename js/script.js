@@ -49,3 +49,81 @@ window.addEventListener("click", (event) => {
     event.target.classList.remove("show-modal");
   }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Seleccciona todos los inputs del formulario
+    const inputs = document.querySelectorAll("input");
+
+    // Bucle forEach y llamada a función con arrow function (ECMAScript 6)
+    inputs.forEach((input) => {
+        input.onchange = function () {
+            console.log("Cambio en el input");
+            console.log(input.value);
+
+            if (input.type != "radio") {
+                if (input.value == "") {
+                    input.classList.remove("valid");
+                    input.classList.add("error");
+                } else {
+                    input.classList.remove("error");
+                    input.classList.add("valid");
+                }
+            }
+
+            // Validación email
+            if (input.type == "email") {
+                let error_email = document.querySelector("#email_error");
+                if (!input.value.includes("@")) {
+                    input.classList.remove("valid");
+                    input.classList.add("error");
+                    error_email.classList.add("error");
+                } else {
+                    input.classList.remove("error");
+                    input.classList.add("valid");
+                    error_email.classList.remove("error");
+                }
+            }
+
+            // Validacion si los campos tienen un valor y no tienen error habilitamos el boton
+            const button = document.querySelector("#submit");
+            const inputs = document.querySelectorAll("input");
+            let valid = true;
+            inputs.forEach((input) => {
+                if (input.classList.contains("error") || input.value == "") {
+                    valid = false;
+                }
+            });
+
+            if (valid) {
+                button.classList.remove("disabled");
+            } else {
+                button.classList.add("disabled");
+            }
+        };
+        // Fin evento onchange
+    });
+    // Fin bucle forEach
+
+    // Lógica fechas
+    var currentDateTime = new Date();
+    var year = currentDateTime.getFullYear();
+    var month = currentDateTime.getMonth() + 1;
+    var date = currentDateTime.getDate() + 1;
+
+    if (date < 10) {
+        date = "0" + date;
+    }
+    if (month < 10) {
+        month = "0" + month;
+    }
+
+    var dateTomorrow = year + "-" + month + "-" + date;
+    var checkinElem = document.querySelector("#checkin-date");
+    var checkoutElem = document.querySelector("#checkout-date");
+
+    checkinElem.setAttribute("min", dateTomorrow);
+
+    checkinElem.onchange = function () {
+        checkoutElem.setAttribute("min", this.value);
+    };
+});
