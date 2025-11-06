@@ -1,6 +1,7 @@
 :root {
   /* Colores */
   --color-background: #e7d8f863;
+  --color-background-two:#e7d8f8;
   --bg-color-menu:#f1abbdb3;
   --color-title: ;
   --text-color: #a25d79;        /* texto principal */
@@ -338,6 +339,7 @@ body{
   margin: 0 auto;
   padding: clamp(40px, 6vw, 80px) 24px;
 }
+
 .relative{ position: relative; }
 .z-1{ z-index: 1; }
 .z-2{ z-index: 2; }
@@ -626,8 +628,8 @@ h2{
 
 /* TARJETA */
 .modalWindow .modal-content {
-    color: var(--text-color-two);
-    background-color: var(--color-background);
+    color: var(--text-color);
+    background-color: var(--color-background-two);
     margin: clamp(56px, 12vh, 120px) auto; /* centrado vertical responsive */
     margin-top: clamp(56px, 12vh, 120px) auto;
     padding: clamp(22px, 5vw, 40px);
@@ -638,8 +640,7 @@ h2{
     align-items: center;
     text-align: center;
     gap: 1.1rem;
-
-    box-shadow: 0 10px 30px rgba(0,0,0,.25), 0 2px 8px rgba(0,0,0,.18);
+    box-shadow: var(--shadow-soft);
     /* pequeña entrada (pop) */
     animation: modal-pop .18s ease-out;
 }
@@ -660,11 +661,12 @@ h2{
     max-width: 60ch;
     margin: 0 auto .75rem;
     font-size: clamp(15px, 1.7vw, 18px);
+    color: var(--text-color-two);
 }
 
 /* CIERRE (X) coral arriba a la derecha */
 .modalWindow .modal-content .close {
-    color: var(--color-title);
+    color: var(--text-color);
     font-size: 2rem;
     font-weight: bold;
     align-self: flex-end;
@@ -682,8 +684,8 @@ h2{
     display: inline-block;
     margin-top: .25rem;
     padding: .65rem 1.1rem;
-    background: var(--color-title);
-    color: #fff;
+    background: var(--text-color);
+    color: var(--color-background-two);
     border: 0;
     border-radius: 10px;
     font-weight: 700;
@@ -691,7 +693,11 @@ h2{
     box-shadow: 0 4px 10px rgba(0,0,0,.12);
     transition: filter .12s ease, transform .06s ease;
 }
-.modalWindow .modal-content .btn-accept:hover{ filter: brightness(.95); }
+.modalWindow .modal-content .btn-accept:hover{ 
+    background: var(--color-btn-bg);
+    color: var(--color-background-two);
+
+ }
 .modalWindow .modal-content .btn-accept:active{ transform: translateY(1px); }
 
 /* Accesibilidad: foco visible si haces focus() al contenedor */
@@ -705,60 +711,65 @@ h2{
 
 /*Entradas*/ 
 
-#tipos_de_entradas {
-padding: clamp(40px, 6vw, 80px) 24px;
-}
 
 #tipos_de_entradas h2 {
   font-family: var(--font-serif);
   font-weight: 800;
-  font-size: clamp(26px, 5vw, 48px);
+  font-size: clamp(35px, 5vw, 48px);
   color: var(--color-title); 
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 18px;
+
 }
 
 .contenedor-tickets {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 4rem;
-    flex-wrap: wrap;
-  
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;  /* reparte hasta los bordes */
+  align-items: stretch;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .tarjeta-ticket {
     background: var(--bg-color-menu);
     border-radius: var(--radius);
     padding: 2rem;
-    width: 350px;
+    width: 400px;
     text-align: center;
     transition: transform 0.3s ease;
+    flex: 1 1 350px;  
+    
 }
 
 .tarjeta-ticket:hover {
     transform: scale(1.05);
-    background: var(--color-title);
+    background: var(--text-color);
 }
 
 .tarjeta-ticket h3 {
   font-family: var(--font-serif);
-    color: var(--color-accent-strong);
+    color: var(--color-btn-bg-hover);
     font-size: 2rem;
     margin-bottom: 0.5rem;
+}
+
+.tarjeta-ticket p {
+ color: var(--text-color);
 }
 
 .tarjeta-ticket .price {
     font-size: 2rem;
     font-weight: bold;
     margin: 1rem 0;
-    color: var(--color-accent-strong);
+    color: var(--color-btn-bg-hover);
 }
 
 .btn-comprar {
-    background: var(--color-title);
-    color: var(--color-background);
+    background: var(--color-btn-bg-hover);
+    color: var(--text-color);
     border: none;
     padding: 0.7rem 1.5rem;
     border-radius: var(--radius);
@@ -767,8 +778,24 @@ padding: clamp(40px, 6vw, 80px) 24px;
 }
 
 .btn-comprar:hover {
-    background: var(--bg-color-menu);
+    background: var(--accent-film-blue);
     transform: scale(1.05);
+    font-weight: bold;
+}
+
+.tarjeta-ticket:hover p {
+ color: var(--text-color-three);
+}
+
+.tarjeta-ticket:hover h3 {
+ color: var(--bg-color-menu);
+}
+
+.tarjeta-ticket:hover .price {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 1rem 0;
+    color: var(--bg-color-menu);
 }
 
 /*  RESPONSIVE  */
@@ -885,3 +912,16 @@ padding: clamp(40px, 6vw, 80px) 24px;
   .program-grid .program-grid__wrap{ grid-template-columns: repeat(4, 1fr); }
 }
 
+/* SOLO móvil: tarjetas a ancho completo */
+@media (max-width: 768px) {
+  #tipos_de_entradas .contenedor-tickets {
+    width: 100vw;                   /* ocupa todo el ancho real */
+    margin-left: 50%;
+    transform: translateX(-50%);    /* para centrar en viewport */
+    padding-inline: clamp(12px, 4vw, 24px);
+  }
+
+  #tipos_de_entradas .tarjeta-ticket {
+    width: 100%;
+  }
+}
