@@ -1121,15 +1121,18 @@ html {
 }
 
 
+@media (max-width: 900px){
   .contact-layout{
-    flex-direction: column;
+    flex-direction: column;   /* <- esto solo en móvil */
     gap: 20px;
   }
   .contact-info,
   #bookingForm{
     width: 100%;
+    max-width: none;
     margin: 0;
   }
+}
   #bookingForm input,
   #bookingForm select,
   #bookingForm textarea{
