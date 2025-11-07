@@ -13,6 +13,23 @@ burger.addEventListener("click", function(){
 
 });
 
+
+let menuLinks = document.querySelectorAll("#menu_pr a");
+
+// Cerrar menú al hacer click en cualquier opción
+menuLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    // Solo cerramos si está abierto
+    if(menu_opt.classList.contains("menu-show")){
+      menu_opt.classList.remove("menu-show");
+
+      burger.classList.add("fa-bars");
+      burger.classList.remove("fa-times");
+    }
+  });
+});
+
+
 //Navbar al scrollear
 const header = document.querySelector("header");
 

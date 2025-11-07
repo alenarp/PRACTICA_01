@@ -721,24 +721,23 @@ h2{
 }
 
 .contenedor-tickets {
-  padding-top: 2rem;
-  display: flex;
-  justify-content: space-between;  /* reparte hasta los bordes */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(16px, 3vw, 32px);
   align-items: stretch;
-  gap: 2.5rem;
-  flex-wrap: wrap;
   width: 100%;
+  padding-top: 2rem;
 }
 
 .tarjeta-ticket {
     background: var(--bg-color-menu);
-    border-radius: var(--radius);
-    padding: 2rem;
-    width: 400px;
-    text-align: center;
-    transition: transform 0.3s ease;
-    flex: 1 1 350px;  
-    
+  border-radius: var(--radius);
+  padding: 2rem;
+  width: 100%;           /* quita el 400px fijo */
+  max-width: 520px;      /* opcional “cinturón” */
+  margin-inline: auto;   /* centra cuando hay 1 por fila */
+  text-align: center;
+  transition: transform .3s ease;
 }
 
 .tarjeta-ticket:hover {
@@ -819,13 +818,12 @@ h2{
     gap: 0.8rem;
 }
 
-/* .footer-logo se queda igual */
 .footer-logo {
     width: 4rem;
     height: auto;
 }
 
-/* antes .footer-right */
+
 .footer-social-block {
     display: flex;
     flex-direction: column;
@@ -833,21 +831,20 @@ h2{
     gap: 1rem;
 }
 
-/* antes .footer-socials */
+
 .social-icons {
     display: flex;
     gap: 1rem;
     font-size: 1.2rem;
 }
 
-/* antes .footer-socials a */
+
 .social-icons a {
     color: var(--text-color-three);
     transition: all 0.3s ease;
 }
 
 
-/* antes .footer-bottom */
 .footer-legal {
     margin-top: 1.5rem;
     text-align: center;
@@ -859,15 +856,16 @@ form#bookingForm{
   max-width:980px; display:grid;
   grid-template-columns:1fr 1fr;gap:2.4rem 3rem;
   border:1px solid var(--color-btn-bg);padding:2rem;border-radius:6px;
+  font-style: var(--font-sans);
 }
 #bookingForm .elem-group{display:grid;gap:.5rem}
 
-/* Orden en dos columnas */
-#bookingForm .elem-group:nth-of-type(1){grid-column:1}     /* Name   */
-#bookingForm .elem-group:nth-of-type(2){grid-column:2}     /* Email  */
-#bookingForm .elem-group:nth-of-type(3){grid-column:1}     /* Phone  */
-#bookingForm .elem-group:nth-of-type(4){grid-column:2}     /* Ticket */
-#bookingForm .elem-group:nth-of-type(5){grid-column:1/-1}  /* Message */
+
+#bookingForm .elem-group:nth-of-type(1){grid-column:1}    
+#bookingForm .elem-group:nth-of-type(2){grid-column:2}     
+#bookingForm .elem-group:nth-of-type(3){grid-column:1}     
+#bookingForm .elem-group:nth-of-type(4){grid-column:2}     
+#bookingForm .elem-group:nth-of-type(5){grid-column:1/-1}  
 
 #bookingForm label{
   font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;opacity:.85
@@ -881,21 +879,29 @@ form#bookingForm{
 #bookingForm ::placeholder{color: var(--text-color);}
 #bookingForm textarea{min-height:140px;resize:vertical}
 
-/* Estado error email (tu JS añade .error) */
+
 #email_error{display:none;color:var(--color-accent-strong);font-size:.8rem;margin-top:.35rem}
 #email_error.error{display:block}
 
-/* Botón */
 #submit{
-  grid-column:1/-1;justify-self:center;margin-top:.5rem;
-  padding:1rem 2rem;border:1px solid var(--text-color);background:transparent;color: var(--text-color);
-  letter-spacing:.07em;text-transform:uppercase;cursor:pointer;transition:background .2s,color .2s,opacity .2s:¡;
+ grid-column:1/-1;
+  justify-self:center;
+  margin-top:.5rem;
+  padding:1rem 2rem;
+  border:1px solid var(--text-color);
+  background:transparent;
+  color: var(--text-color);
+  letter-spacing:.07em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition: color .2s, opacity .2s; /* <- aquí */
   border-radius: 12px;
-}
+ }
+
 #submit.disabled{opacity:.45;cursor:not-allowed}
 #submit:not(.disabled):hover{background:var(--color-btn-bg);color: var(--color-background-two)}
 
-/* Responsive */
+
 
 @media (max-width: 780px) {
   form#bookingForm {
@@ -1033,31 +1039,28 @@ form#bookingForm{
 
 @media (max-width: 768px) {
   #tipos_de_entradas .contenedor-tickets {
-    width: 100vw;                  
-    transform: translateX(-50%);    
+    width: 100%;               
     padding-inline: clamp(12px, 4vw, 24px);
-  }
 
-  #tipos_de_entradas .tarjeta-ticket {
-    width: 100%;
   }
+  #tipos_de_entradas .tarjeta-ticket { width: 100%; }
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-/* ===== CONTACTO (container + spacing) ===== */
+
 #contacto .container{
   width: min(1100px, 100% - clamp(24px,6vw,64px));
   margin-inline: auto;
 }
 
 
-/* ===== LAYOUT: dos columnas en desktop (flex) ===== */
+
 .contact-layout{
   display: flex;
-  align-items: flex-start;                 /* alinear arriba */
+  align-items: flex-start;                
   justify-content: center;
   gap: clamp(20px, 4vw, 48px);
 }
