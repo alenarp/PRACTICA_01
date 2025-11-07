@@ -144,3 +144,4 @@ document.addEventListener("DOMContentLoaded", function () {
         checkoutElem.setAttribute("min", this.value);
     };
 });
+

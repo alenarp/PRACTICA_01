@@ -1,0 +1,205 @@
+/* === AURA · Compra de entradas (CSS página) ============================== */
+
+/* ---------- Variables ---------- */
+:root{
+  /* UI */
+  --input-padding: 10px;
+  --input-margin: .5rem 0 0 0;
+
+  /* Paleta */
+  --color-background:#e7d8f863;
+  --color-background-two:#e7d8f8;
+  --secondary-color:#f1abbdb3;     /* rosa translúcido */
+  --primary-color:#a25d79;          /* texto titular / acentos */
+  --text-color-two:#646464;         /* texto base */
+  --text-color-three:#ffffff;       /* texto claro */
+  --bgprimary-color:#F2A5A0;        /* rosa fuerte */
+  --terc-color:#7c2248;             /* vino */
+  --color-btn-bg-hover:#FFE6A8;     /* crema */
+  --accent-film-blue:#ddf3ff;       /* azul suave */
+
+  --accent-color: var(--terc-color);
+
+  /* Tipos */
+  --font-ss:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  --font-serif:"Playfair Display",Georgia,"Times New Roman",serif;
+
+  /* Layout helpers (usa las de style.css si existen) */
+  --header-h: 80px;
+  --container-w: 980px;
+
+  /* Header bg para páginas internas */
+  --bg-color-menu: var(--secondary-color);
+}
+
+/* ---------- Reset breve ---------- */
+*{ margin:0; padding:0; box-sizing:border-box; }
+img{ max-width:100%; height:auto; display:block; }
+button{ font: inherit; }
+
+/* ---------- Ajustes de página interna ---------- */
+body.page-compra{ background: #f6dce5; color: var(--primary-color); font-family: var(--font-ss); }
+body.page-compra .site-header{ background: var(--bg-color-menu); }
+
+/* ---------- Contenedor principal ---------- */
+.compra-container{
+  width:min(var(--container-w), 100% - clamp(24px,6vw,64px));
+  margin-inline:auto;
+  padding-top: clamp(12px, 3vw, 18px);
+}
+
+/* ---------- Titulares y copia ---------- */
+h1{
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.4vw, 2.4rem);
+  color: var(--primary-color);
+  margin-bottom: .75rem;
+  text-align:center;
+}
+.ticket-intro-text{
+  font-family: var(--font-ss);
+  font-size: clamp(14px, 2vw, 18px);
+  max-width: 720px;
+  margin: 0 auto clamp(24px,4vw,40px);
+  line-height: 1.6;
+  font-weight: 300;
+  color: var(--text-color-two);
+  opacity: .9;
+  text-align:center;
+}
+
+/* =================== FORMULARIO =================== */
+#foodMenu{ margin-top: .25rem; }
+
+/* Tarjeta del formulario */
+#foodMenu form{
+  width: 100%;
+  padding: clamp(16px, 3.5vw, 28px);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: color-mix(in oklab, var(--color-background-two), white 10%);
+  border: 1px solid color-mix(in oklab, var(--terc-color), transparent 65%);
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,.06);
+}
+
+/* Cada fila: etiqueta izquierda / controles derecha */
+#foodMenu form > div{
+  display: grid;
+  grid-template-columns: 1fr 200px;  /* ancho del bloque de controles */
+  align-items: center;
+  gap: 1.25rem;
+}
+
+/* Etiquetas de las entradas */
+#foodMenu form label{
+  font-family: var(--font-serif);
+  font-size: clamp(1.05rem, 2.6vw, 1.4rem);
+  color: var(--primary-color);
+  line-height: 1.25;
+}
+
+/* ---------- Stepper (– input +) ---------- */
+.stepper{
+  display: grid;
+  grid-template-columns: 38px 1fr 38px;
+  align-items: center;
+  gap: .7rem;
+  width: 100%;
+  justify-items: center;
+}
+
+.step-btn{
+  width: 38px; height: 38px;
+  display:flex; justify-content:center; align-items:center;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  background: var(--color-background-two);
+  cursor: pointer;
+  transition: .2s ease;
+}
+.step-btn:hover{ background: var(--primary-color); color: var(--text-color-three); transform: scale(1.05); }
+.step-btn:active{ transform: scale(.92); }
+
+/* Input number */
+#foodMenu form input[type="number"]{
+  width: 100%;
+  min-width: 70px;
+  font-size: clamp(1rem, 2.6vw, 1.2rem);
+  text-align:center;
+  padding: var(--input-padding);
+  margin: var(--input-margin);
+  color: var(--primary-color);
+  background:#fff;
+  border: 2px solid color-mix(in oklab, var(--primary-color), #000 0%);
+  border-radius: 12px;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+#foodMenu form input[type="number"]:focus{
+  outline: none;
+  border-color: var(--terc-color);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--secondary-color), transparent 55%);
+}
+/* Quitar spinners */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button{ -webkit-appearance:none; margin:0; }
+input[type=number]{ -moz-appearance:textfield; appearance:textfield; }
+
+/* ---------- Total ---------- */
+#foodMenu .total-price-cont{
+  display: grid;
+  grid-template-columns: 1fr 200px; /* mismo ancho que el stepper */
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: .35rem;
+  font-size: clamp(1.05rem, 2.6vw, 1.2rem);
+}
+#foodMenu .total-price-cont p:first-child{
+  font-family: var(--font-serif);
+  color: color-mix(in oklab, var(--primary-color), #000 10%);
+}
+#totalPrice{
+  font-family: var(--font-ss);
+  color: var(--accent-color);
+  font-weight: 700;
+  justify-self: end;
+}
+
+/* ---------- CTA comprar ---------- */
+#buyFood{
+  padding: 1rem 1.5rem;
+  margin-top: .5rem;
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  border: 2px solid color-mix(in oklab, var(--terc-color), transparent 40%);
+  border-radius: 14px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: .06em;
+  font-size: clamp(1rem, 2.8vw, 1.05rem);
+  transition: transform .06s ease, box-shadow .2s ease, opacity .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+}
+#buyFood:hover{ transform: translateY(-1px); box-shadow: 0 10px 20px rgba(0,0,0,.08); }
+#buyFood.disabled{
+  background: #e9e9e9; color:#777; border-color:#ddd;
+  cursor:not-allowed; box-shadow:none; transform:none;
+}
+
+/* =================== Responsive =================== */
+@media (max-width: 780px){
+  /* apila etiqueta y controles */
+  #foodMenu form > div,
+  #foodMenu .total-price-cont{
+    grid-template-columns: 1fr;
+  }
+  #totalPrice{ justify-self: start; }
+}
+
+/* Un poco más de respiro en pantallas muy grandes */
+@media (min-width: 1200px){
+  .compra-container{ width:min(1100px, 100% - clamp(24px,6vw,64px)); }
+}

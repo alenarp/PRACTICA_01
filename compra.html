@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es" class="has-anchor">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>AURA · Compra de entradas</title>
+
+    <!-- CSS de la web + estilos de esta página -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/compra.css">
+
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+      /* Header sólido desde el inicio en páginas internas */
+      body.page-compra .site-header{ background:var(--bg-color-menu); }
+    </style>
+  </head>
+  <body class="page-compra">
+    <!-- ============ HEADER ============ -->
+    <header class="site-header">
+      <nav class="navbar">
+        <div class="navbar-container">
+          <a href="index.html" class="logo">
+            <img src="assets/images/Aura-Logo-white-1.png" alt="Logo AURA" class="logo-img">
+          </a>
+
+          <button class="burger" aria-label="Abrir menú" aria-controls="menu_pr" aria-expanded="false">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+          </button>
+
+          <ul id="menu_pr" class="menu_pr">
+            <li class="menu_item"><a href="index.html#about-aura" class="menu_link">AURA</a></li>
+            <li class="menu_item"><a href="index.html#peliculas" class="menu_link">SELECCIONADAS</a></li>
+            <li class="menu_item"><a href="index.html#contacto" class="menu_link">CONTACTO</a></li>
+            <li class="menu_item nav-cta"><a href="index.html#tipos_de_entradas" class="menu_button">ENTRADAS</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main style="padding-top:var(--header-h)">
+      <section class="compra-container container">
+        <h1>¡ELIGE TU TIPO DE ENTRADA!</h1>
+        <p class="ticket-intro-text">
+          Puedes añadir hasta 15 entradas. Si quieres comprar más para un grupo grande,
+          escríbenos y te ayudamos a gestionarlo con soporte personalizado.
+        </p>
+
+        <section id="foodMenu">
+          <form id="form" action="">
+            <!-- 1 DÍA -->
+            <div>
+              <label for="oneDay">Entrada de 1 día — 40€</label>
+              <div class="stepper">
+                <button type="button" class="step-btn minus" data-target="oneDay">-</button>
+                <input type="number" name="oneDay" id="oneDay" min="0" max="15" value="0" data-price="40" />
+                <button type="button" class="step-btn plus" data-target="oneDay">+</button>
+              </div>
+            </div>
+
+            <!-- GENERAL -->
+            <div>
+              <label for="general">Entrada General — 80€</label>
+              <div class="stepper">
+                <button type="button" class="step-btn minus" data-target="general">-</button>
+                <input type="number" name="general" id="general" min="0" max="15" value="0" data-price="80" />
+                <button type="button" class="step-btn plus" data-target="general">+</button>
+              </div>
+            </div>
+
+            <!-- VIP -->
+            <div>
+              <label for="vip">Entrada VIP — 100€</label>
+              <div class="stepper">
+                <button type="button" class="step-btn minus" data-target="vip">-</button>
+                <input type="number" name="vip" id="vip" min="0" max="15" value="0" data-price="100" />
+                <button type="button" class="step-btn plus" data-target="vip">+</button>
+              </div>
+            </div>
+
+            <!-- PACK MERCH -->
+            <div>
+              <label for="merch">Pack Merch (opcional) — 15€</label>
+              <div class="stepper">
+                <button type="button" class="step-btn minus" data-target="merch">-</button>
+                <input type="number" name="merch" id="merch" min="0" max="15" value="0" data-price="15" />
+                <button type="button" class="step-btn plus" data-target="merch">+</button>
+              </div>
+            </div>
+
+            <div class="total-price-cont">
+              <p>Total:</p>
+              <p id="totalPrice">0,00&nbsp;€</p>
+            </div>
+
+            <input id="buyFood" type="submit" value="Comprar entradas" class="disabled" />
+          </form>
+        </section>
+      </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer-zone">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <a href="index.html">
+            <img src="assets/images/Aura-Logo-white-1.png" alt="logo aura" class="footer-logo">
+          </a>
+        </div>
+        <div class="footer-social-block">
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-legal">© 2025 AURA — Todos los derechos reservados.</div>
+    </footer>
+
+    <!-- Tu JS global (si lo necesitas) -->
+    <script src="js/compra.js"></script>
+  </body>
+</html>
