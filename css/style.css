@@ -365,10 +365,3 @@ h1{
   .contact-info,#bookingForm{ width:100%; max-width:none; margin:0; }
 }
 
-
-@media (max-width: 560px){
-  #foodMenu form > div{ flex-direction:column; align-items:stretch; }
-  #foodMenu form input[type="number"]{ width:100%; }
-  #foodMenu .total-price-cont{ gap:.75rem; }
-}
-
